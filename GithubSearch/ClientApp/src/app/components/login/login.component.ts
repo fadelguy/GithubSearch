@@ -35,6 +35,7 @@ export class LoginComponent implements OnInit {
       const token = (<any>response).token;
       localStorage.setItem("jwt", token);
       this.invalidLogin = false;
+      this.authSrv.isAuth.next(true);
       this.router.navigate(["search"]);
     }, err => {
       this.invalidLogin = true;

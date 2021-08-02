@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ISearchResult } from '../../interfaces/search-result.interface';
 import { SearchService } from '../../services/serach.service';
+import { MessageService } from 'primeng-lts/api';
 
 @Component({
   selector: 'app-search',
@@ -9,11 +10,11 @@ import { SearchService } from '../../services/serach.service';
 })
 export class SearchComponent implements OnInit {
 
-  text: string;
+  result: ISearchResult;
 
   results: ISearchResult[];
 
-  constructor(private searchService: SearchService) { }
+  constructor(private searchService: SearchService, private messageService: MessageService) { }
 
   ngOnInit(): void {
   }
@@ -24,5 +25,8 @@ export class SearchComponent implements OnInit {
     });
   }
 
-
+  selected() {
+    console.log(this.result);
+    this.messageService.add({ severity: 'success', summary: 'Add to favorites', detail: this.result.name });
+  }
 }

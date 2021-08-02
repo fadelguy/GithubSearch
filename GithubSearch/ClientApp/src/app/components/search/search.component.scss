@@ -1,0 +1,32 @@
+.search-page {
+  .content {
+    display: flex;
+    justify-content: center;
+
+    ::ng-deep.ui-autocomplete {
+      .ui-autocomplete-input {
+        width: 600px;
+        height: 50px;
+      }
+
+      .ui-helper-clearfix {
+        .title {
+          display: inline-block;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          width: 485px;
+        }
+
+        img {
+          float: right;
+          width: 25px;
+
+          &:hover {
+            filter: blur(1.5px);
+          }
+        }
+      }
+    }
+  }
+}

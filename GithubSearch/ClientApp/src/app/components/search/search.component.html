@@ -1,5 +1,15 @@
-<div>
+<div class="search-page">
+  <h3>Search</h3>
+  <div class="content">
+    <p-autoComplete [(ngModel)]="result" [suggestions]="results" (completeMethod)="search($event);" field="name" scrollHeight="300px" (onSelect)="selected()">
+      <ng-template let-result pTemplate="item">
+        <div class="ui-helper-clearfix">
+          <div class="title">{{result.name}} | {{result.description}}</div>
+          <img src="assets/images/favorite-icon.jpg" />
+        </div>
+      </ng-template>
+    </p-autoComplete>
 
-  <p-autoComplete [(ngModel)]="text" [suggestions]="results" (completeMethod)="search($event)"></p-autoComplete>
-
+  </div>
 </div>
+<p-toast></p-toast>

@@ -21,7 +21,6 @@
 
   <ItemGroup>
     <None Remove="ClientApp\src\app\app.routes.ts" />
-    <None Remove="ClientApp\src\app\interfaces\github-result.interface.ts" />
     <None Remove="ClientApp\src\app\interfaces\search-result.interface.ts" />
     <None Remove="ClientApp\src\app\interfaces\user.interface.ts" />
     <None Remove="ClientApp\src\app\services\auth.guard.ts" />
@@ -32,15 +31,16 @@
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.8" />
     <PackageReference Include="Microsoft.AspNetCore.SpaServices" Version="3.1.17" />
     <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="5.0.8" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="ClientApp\src\app\services\NewFolder\" />
+    <Folder Include="ClientApp\src\assets\images\" />
   </ItemGroup>
 
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\app\app.routes.ts" />
-    <TypeScriptCompile Include="ClientApp\src\app\interfaces\github-result.interface.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\interfaces\search-result.interface.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\interfaces\user.interface.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\services\auth.guard.ts" />
