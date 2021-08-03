@@ -21,10 +21,15 @@
 
   <ItemGroup>
     <None Remove="ClientApp\src\app\app.routes.ts" />
+    <None Remove="ClientApp\src\app\interfaces\favorites.interface.ts" />
     <None Remove="ClientApp\src\app\interfaces\search-result.interface.ts" />
     <None Remove="ClientApp\src\app\interfaces\user.interface.ts" />
     <None Remove="ClientApp\src\app\services\auth.guard.ts" />
     <None Remove="ClientApp\src\app\services\serach.service.ts" />
+    <None Remove="ClientApp\src\app\store\actions\favorites.actions.ts" />
+    <None Remove="ClientApp\src\app\store\effects\favorites.effect.ts" />
+    <None Remove="ClientApp\src\app\store\reducers\favorites.reducers.ts" />
+    <None Remove="ClientApp\src\app\store\state\favorites.sate.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -41,10 +46,15 @@
 
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\app\app.routes.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\interfaces\favorites.interface.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\interfaces\search-result.interface.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\interfaces\user.interface.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\services\auth.guard.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\services\serach.service.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\store\actions\favorites.actions.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\store\effects\favorites.effect.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\store\reducers\favorites.reducers.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\store\state\favorites.sate.ts" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

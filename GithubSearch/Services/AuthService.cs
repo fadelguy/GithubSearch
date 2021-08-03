@@ -21,7 +21,7 @@ namespace GithubSearch.Services
         }
         public string AuthenticateUser(UserModel user)
         {
-            if(user.UserName == "test" && user.Password == "test")
+            if(user.UserName == _config["UserCredentials:UserName"] && user.Password == _config["UserCredentials:Password"])
             {
                 return GenerateJSONWebToken(user);
             }

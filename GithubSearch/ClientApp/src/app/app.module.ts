@@ -7,17 +7,21 @@ import { JwtModule } from "@auth0/angular-jwt";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastModule } from 'primeng-lts/toast';
 import { AutoCompleteModule } from 'primeng-lts/autocomplete';
+import { TableModule } from 'primeng-lts/table';
+import { ButtonModule } from 'primeng-lts/button';
 
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
-import { HomeComponent } from './home/home.component';
-import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { LoginComponent } from './components/login/login.component';
 import { AuthGuard } from './services/auth.guard';
 import { appRoutes } from './app.routes';
 import { SearchComponent } from './components/search/search.component';
 import { MessageService } from 'primeng-lts/api';
 import { FavoriteComponent } from './components/favorite/favorite.component';
+import { StoreModule } from '@ngrx/store';
+import { favoritesReducer } from './store/reducers/favorites.reducers';
+import { EffectsModule } from '@ngrx/effects';
+import { FavoritesEffects } from './store/effects/favorites.effect';
 
 export function tokenGetter() {
   return localStorage.getItem("jwt");
@@ -27,8 +31,6 @@ export function tokenGetter() {
   declarations: [
     AppComponent,
     NavMenuComponent,
-    HomeComponent,
-    FetchDataComponent,
     LoginComponent,
     SearchComponent,
     FavoriteComponent
@@ -41,6 +43,8 @@ export function tokenGetter() {
     FormsModule,
     AutoCompleteModule,
     ToastModule,
+    TableModule,
+    ButtonModule,
     RouterModule.forRoot(appRoutes),
     JwtModule.forRoot({
       config: {
@@ -48,7 +52,9 @@ export function tokenGetter() {
         whitelistedDomains: ["localhost:5001"],
         blacklistedRoutes: []
       }
-    })
+    }),
+    StoreModule.forRoot({ favorites: favoritesReducer }),
+    EffectsModule.forRoot([FavoritesEffects]),
   ],
   providers: [AuthGuard, MessageService],
   bootstrap: [AppComponent]

@@ -1,1 +1,25 @@
-<p>favorite works!</p>
+<div class="favorites-page">
+  <h3>Favorites</h3>
+  <p-table [value]="(favorites | async).favorites">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th></th>
+
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-favorite>
+      <tr>
+        <td><a [href]="favorite.url" target="_blank">{{favorite.name}}</a></td>
+        <td>{{favorite.description}}</td>
+        <td>
+          <button pButton type="button" class="ui-button-secondary" icon="pi pi-trash" (click)="removeFavorite(favorite.id)"></button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
+
+
+
